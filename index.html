@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Random Inspirational Quotes</title>
+  <!-- Bootstrap CSS CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .quote-box {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      padding: 30px 40px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+    .quote-text {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 25px;
+    }
+    .quote-author {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    button {
+      font-weight: 600;
+      padding: 10px 30px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #4e5cff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-box shadow">
+    <div class="quote-text" id="quote">Click the button to get inspired!</div>
+    <div class="quote-author" id="author"></div>
+    <button
+      class="btn btn-light"
+      onclick="showRandomQuote()"
+      aria-label="Get a new inspirational quote"
+    >
+      New Quote
+    </button>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        text: "The best way to predict the future is to create it.",
+        author: "Peter Drucker",
+      },
+      {
+        text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        author: "Winston Churchill",
+      },
+      {
+        text: "Believe you can and you're halfway there.",
+        author: "Theodore Roosevelt",
+      },
+      {
+        text: "Do what you can, with what you have, where you are.",
+        author: "Theodore Roosevelt",
+      },
+      {
+        text: "Dream big and dare to fail.",
+        author: "Norman Vaughan",
+      },
+      {
+        text: "You miss 100% of the shots you don’t take.",
+        author: "Wayne Gretzky -Michael Scott",
+      },
+      {
+        text: "The only limit to our realization of tomorrow will be our doubts of today.",
+        author: "Franklin D. Roosevelt",
+      }
+    ];
+
+    function showRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quote = quotes[randomIndex];
+      document.getElementById("quote").textContent = `"${quote.text}"`;
+      document.getElementById("author").textContent = `— ${quote.author}`;
+    }
+  </script>
+</body>
+</html>
